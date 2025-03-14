@@ -17,7 +17,7 @@ async function verifyAuthentication() {
     if (!jwtCookie) {
       return { isAuthenticated: false, username: null };
     }
-
+    
     if (process.env.BACKEND_URL) {
       const response = await fetch(`${process.env.BACKEND_URL}/auth/verify`, {
         headers: {
@@ -30,13 +30,18 @@ async function verifyAuthentication() {
         return {
           isAuthenticated: true,
           username: data.teamName
-          };
+        };
       }
     } else {
       try {
+        interface JWTPayload {
+          team_name?: string;
+          teamName?: string;
+        }
+        
         const decoded = jwt.verify(jwtCookie, process.env.JWT_SECRET || "secret");
-        const payload = typeof decoded === 'object' ? decoded : {};
-        const username = (payload as any).team_name || (payload as any).teamName || "Team";
+        const payload = typeof decoded === 'object' ? decoded as JWTPayload : {};
+        const username = payload.team_name || payload.teamName || "Team";
         
         return {
           isAuthenticated: true,
@@ -57,7 +62,6 @@ async function verifyAuthentication() {
 export async function POST(req: NextRequest) {
   try {
     const { challengeId, flag }: { challengeId: string, flag: string } = await req.json();
-    
     const { isAuthenticated, username } = await verifyAuthentication();
     
     if (!isAuthenticated) {
@@ -65,21 +69,17 @@ export async function POST(req: NextRequest) {
     }
     
     const correctFlag = process.env[challengeId];
-    
     if (!correctFlag) {
       return NextResponse.json({ success: false, message: 'Challenge not found' }, { status: 404 });
     }
-
+    
     if (flag === correctFlag) {
-
       const points = challengePoints[challengeId] || 0;
       const timestamp = new Date().toISOString();
       
-
       try {
         const { db } = await connectToDatabase();
         const leaderboardCollection = db.collection('userProgress');
-        
         const user = await leaderboardCollection.findOne({ username });
         
         if (!user) {
@@ -91,12 +91,16 @@ export async function POST(req: NextRequest) {
           });
         } else {
           if (!user.solved.includes(challengeId)) {
+            const updatedSolved = [...user.solved, challengeId];
+            const updatedPoints = user.totalPoints + points;
+            
             await leaderboardCollection.updateOne(
               { username },
-              { 
-                $push: { solved: { $each: [challengeId] } },
-                $inc: { totalPoints: points },
-                $set: { lastSolveTime: timestamp }
+              {
+                username,
+                solved: updatedSolved,
+                totalPoints: updatedPoints,
+                lastSolveTime: timestamp
               }
             );
           }
@@ -105,8 +109,8 @@ export async function POST(req: NextRequest) {
         console.error('Error updating MongoDB:', dbError);
       }
       
-      return NextResponse.json({ 
-        success: true, 
+      return NextResponse.json({
+        success: true,
         message: 'Congratulations! Flag is correct',
         points: points
       });

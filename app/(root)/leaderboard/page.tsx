@@ -14,7 +14,7 @@ const fallbackData = [
 ];
 
 export default function Leaderboard() {
-  const [leaderboardData, setLeaderboardData] = useState([]);
+  const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -37,10 +37,16 @@ export default function Leaderboard() {
         
         if (data.success && data.leaderboard) {
           // Format the time display from ISO string
-          const formattedData = data.leaderboard.map(entry => ({
+            const formattedData: LeaderboardEntry[] = data.leaderboard.map((entry: {
+            rank: number;
+            username: string;
+            solved: number;
+            points: number;
+            lastSolveTime?: string;
+            }): LeaderboardEntry => ({
             ...entry,
             time: formatTime(entry.lastSolveTime)
-          }));
+            }));
           setLeaderboardData(formattedData);
         } else {
           setError("Failed to load leaderboard data");
@@ -58,15 +64,23 @@ export default function Leaderboard() {
     fetchLeaderboard();
   }, [router]);
 
+  // Interface for leaderboard entries
+  interface LeaderboardEntry {
+    rank: number;
+    username: string;
+    solved: number;
+    points: number;
+    lastSolveTime?: string;
+    time?: string;
+  }
+  
   // Format ISO time string to display format
-  const formatTime = (isoString) => {
+  const formatTime = (isoString: string | undefined): string => {
     if (!isoString) return "N/A";
-    try {
+ 
       const date = new Date(isoString);
       return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    } catch (e) {
-      return "N/A";
-    }
+
   };
 
   return (
@@ -86,7 +100,14 @@ export default function Leaderboard() {
               <p className="text-green-400 text-center">No players on the leaderboard yet. Be the first!</p>
             ) : (
               leaderboardData.map((player) => (
-                <LeaderboardCard key={player.rank} {...player} />
+                <LeaderboardCard 
+                  key={player.rank} 
+                  rank={player.rank}
+                  username={player.username}
+                  solved={player.solved}
+                  score={player.points}
+                  time={player.time || 'N/A'}
+                />
               ))
             )}
           </div>

@@ -31,9 +31,15 @@ export async function GET() {
       try {
         const decoded = jwt.verify(jwtCookie, process.env.JWT_SECRET || "secret_bro_why_tell_u");
         
+        // Define the payload interface
+        interface JwtPayload {
+          team_name?: string;
+          teamName?: string;
+        }
+        
         // Extract team name from decoded JWT
-        const payload = typeof decoded === 'string' ? {} : decoded;
-        const teamName = (payload as any).team_name || (payload as any).teamName || "Team";
+        const payload = typeof decoded === 'string' ? {} as JwtPayload : decoded as JwtPayload;
+        const teamName = payload.team_name || payload.teamName || "Team";
         
         return NextResponse.json({
           isAuthenticated: true,

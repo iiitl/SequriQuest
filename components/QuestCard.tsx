@@ -19,10 +19,15 @@ export default function QuestCard({ title, points, description, hint, id, url, a
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isHintVisible, setIsHintVisible] = useState(false);
 
-  const handleSubmit = async (e) => {
+  interface SubmitResponse {
+    success: boolean;
+    message: string;
+    points?: number;
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     
-    // Don't resubmit if already solved
     if (alreadySolved) return;
     
     setIsSubmitting(true);
@@ -38,7 +43,7 @@ export default function QuestCard({ title, points, description, hint, id, url, a
         body: JSON.stringify({ challengeId: id, flag }),
       });
 
-      const data = await response.json();
+      const data: SubmitResponse = await response.json();
       
       if (data.success) {
         setStatus('success');
