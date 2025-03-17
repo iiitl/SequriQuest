@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const quests = [
-  { title: "Challenge 1", points: 80, description: "Solve this puzzle to unlock the next stage!", hint: "Think like a hacker.", id: "c1" },
-  { title: "Challenge 2", points: 110, description: "Can you decode this encrypted message?", hint: "Try XOR encryption.", id: "c2" },
-  { title: "Challenge 3", points: 100, description: "Find the hidden flag in this binary file.", hint: "Use a hex editor.", id: "c3" }
+  { title: "Challenge 1", points: 50, description: "Pointy pointers.", hint: "Is the source code in C?", id: "c1" },
+  { title: "Challenge 2", points: 75, description: "Disk Diving.", hint: "Dive deep to find the best gems.", id: "c2" },
+  { title: "Challenge 3", points: 100, description: "Easy search.", hint: "Its not that easy. LOL.", id: "c3" },
+  { title: "Challenge 4", points: 50, description: "Secret hunting.", hint: "The file is not as innocent as it looks.", id: "c4" },
+  { title: "Challenge 5", points: 100, description: "Eye catcher.", hint: "Don't believe your eyes.", id: "c5" },
 ];
 
 export default function Challenges() {
