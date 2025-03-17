@@ -17,7 +17,7 @@ const quests = [
 export default function Challenges() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-
+/**
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -34,10 +34,10 @@ export default function Challenges() {
         router.push('/login');
       }
     };
-    
+  
     checkAuth();
   }, [router]);
-
+**/
   if (isLoading) {
     return (
       <>
@@ -49,6 +49,7 @@ export default function Challenges() {
       </>
     );
   }
+  
 
   return (
     <>
