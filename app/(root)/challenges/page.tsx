@@ -3,9 +3,8 @@
 import QuestCard from "@/components/QuestCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-
+// import { useEffect, useState } from "react";
+// import { useRouter } from "next/navigation";
 const quests = [
   { title: "Challenge 1", points: 50, description: "Pointy pointers.", hint: "Is the source code in C?", id: "c1" },
   { title: "Challenge 2", points: 75, description: "Disk Diving.", hint: "Dive deep to find the best gems.", id: "c2" },
@@ -15,8 +14,8 @@ const quests = [
 ];
 
 export default function Challenges() {
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
+//  const [isLoading, setIsLoading] = useState(true);
+ // const router = useRouter();
 /**
   useEffect(() => {
     const checkAuth = async () => {
@@ -37,7 +36,7 @@ export default function Challenges() {
   
     checkAuth();
   }, [router]);
-**/
+
   if (isLoading) {
     return (
       <>
@@ -49,6 +48,7 @@ export default function Challenges() {
       </>
     );
   }
+  **/
   
 
   return (
