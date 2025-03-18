@@ -1,0 +1,7 @@
+Julius and Caesar were working on securing their communication.
+Julius encrypted his password using a simple encryption algorithm, but in his rush, he forgot to share the decryption method with Caesar.
+The only thing Caesar received was the encrypted message, which is your challenge to decode.
+
+Encrypted Message: hfmFCHgsjsbhssbLCO
+
+Hint: Flag format will be iiitl{decrypted_messsage}

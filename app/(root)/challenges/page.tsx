@@ -12,6 +12,9 @@ const quests = [
   { title: "Challenge 4", points: 50, description: "Secret hunting.", hint: "The file is not as innocent as it looks.", id: "c4" },
   { title: "Challenge 5", points: 75, description: "Reverse Engineering 101.", hint: "Don't overthink it.", id: "c5" },
   { title: "Challenge 6", points: 100, description: "Eye catcher.", hint: "Don't believe your eyes.", id: "c6" },
+  { title: "Challenge 7", points: 50, description: "Julius encrypted his password using a simple encryption algorithm. Can you decode it?", hint: "USA!!USA!!USA!!", id: "c7" },
+  { title: "Challenge 8", points: 75, description: "A mysterious post was found on reddit. Can you uncover its truth?", hint: "ETUTITSBUS", id: "c8" },
+  { title: "Challenge 9", points: 100, description: "Numbers and Deception: Sometimes, the greatest value isn’t what it seems.", hint: "Read the code.", id: "c9" },
 ];
 
 export default function Challenges() {
