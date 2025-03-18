@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation";
 
 // Fallback data in case API fails
 const fallbackData = [
-  { rank: 1, username: "@MrRobot", solved: 9, points: 800, time: "00:45:30" },
-  { rank: 2, username: "@Sherlock22B", solved: 5, points: 500, time: "01:05:30" },
-  { rank: 3, username: "@SheldorTheConquerer", solved: 2, points: 200, time: "00:10:30" },
+  { rank: 1, username: "@MrRobot", solved: 9, score: 800, time: "00:45:30" },
+  { rank: 2, username: "@Sherlock22B", solved: 5, score: 500, time: "01:05:30" },
+  { rank: 3, username: "@SheldorTheConquerer", solved: 2, score: 200, time: "00:10:30" },
 ];
 
 export default function Leaderboard() {
@@ -41,7 +41,7 @@ export default function Leaderboard() {
             rank: number;
             username: string;
             solved: number;
-            points: number;
+            score: number;
             lastSolveTime?: string;
             }): LeaderboardEntry => ({
             ...entry,
@@ -69,8 +69,7 @@ export default function Leaderboard() {
     rank: number;
     username: string;
     solved: number;
-    points: number;
-    lastSolveTime?: string;
+    score: number;
     time?: string;
   }
   
@@ -82,7 +81,6 @@ export default function Leaderboard() {
       return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
   };
-
   return (
     <>
       <Navbar />
@@ -101,11 +99,11 @@ export default function Leaderboard() {
             ) : (
               leaderboardData.map((player) => (
                 <LeaderboardCard 
-                  key={player.rank} 
+                  key={player.rank} // Add unique key prop
                   rank={player.rank}
                   username={player.username}
                   solved={player.solved}
-                  score={player.points}
+                  score={player.score}
                   time={player.time || 'N/A'}
                 />
               ))

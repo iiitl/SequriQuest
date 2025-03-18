@@ -4,9 +4,16 @@ import jwt from "jsonwebtoken";
 import { connectToDatabase } from "@/lib/mongodb";
 
 const challengePoints: Record<string, number> = {
-  "c1": 80,
-  "c2": 110,
+  "c1": 50,
+  "c2": 75,
   "c3": 100,
+  "c4": 50,
+  "c5": 75,
+  "c6": 100,
+  "c7": 50,
+  "c8": 75,
+  "c9": 100,
+  "c10": 75
 };
 
 async function verifyAuthentication() {
@@ -81,7 +88,7 @@ export async function POST(req: NextRequest) {
         const { db } = await connectToDatabase();
         const leaderboardCollection = db.collection('userProgress');
         const user = await leaderboardCollection.findOne({ username });
-        
+        // console.log(user)
         if (!user) {
           await leaderboardCollection.insertOne({
             username,
@@ -97,10 +104,10 @@ export async function POST(req: NextRequest) {
             await leaderboardCollection.updateOne(
               { username },
               {
-                username,
+                $set : {username,
                 solved: updatedSolved,
                 totalPoints: updatedPoints,
-                lastSolveTime: timestamp
+                lastSolveTime: timestamp}
               }
             );
           }
