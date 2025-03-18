@@ -15,6 +15,7 @@ const quests = [
   { title: "Challenge 7", points: 50, description: "Julius encrypted his password using a simple encryption algorithm. Can you decode it?", hint: "USA!!USA!!USA!!", id: "c7" },
   { title: "Challenge 8", points: 75, description: "A mysterious post was found on reddit. Can you uncover its truth?", hint: "ETUTITSBUS", id: "c8" },
   { title: "Challenge 9", points: 100, description: "Numbers and Deception: Sometimes, the greatest value isn’t what it seems.", hint: "Read the code.", id: "c9" },
+  { title: "Challenge 10", points: 75, description: "Rainb0lt who?", hint: "Try searching on planet Earth.", id: "c10" },
 ];
 
 export default function Challenges() {
