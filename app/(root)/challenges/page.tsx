@@ -10,7 +10,8 @@ const quests = [
   { title: "Challenge 2", points: 75, description: "Disk Diving.", hint: "Dive deep to find the best gems.", id: "c2" },
   { title: "Challenge 3", points: 100, description: "Easy search.", hint: "Its not that easy. LOL.", id: "c3" },
   { title: "Challenge 4", points: 50, description: "Secret hunting.", hint: "The file is not as innocent as it looks.", id: "c4" },
-  { title: "Challenge 5", points: 100, description: "Eye catcher.", hint: "Don't believe your eyes.", id: "c5" },
+  { title: "Challenge 5", points: 75, description: "Reverse Engineering 101.", hint: "Don't overthink it.", id: "c5" },
+  { title: "Challenge 6", points: 100, description: "Eye catcher.", hint: "Don't believe your eyes.", id: "c6" },
 ];
 
 export default function Challenges() {
