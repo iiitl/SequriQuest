@@ -16,6 +16,7 @@ const quests = [
   { title: "Challenge 8", points: 75, description: "A mysterious post was found on reddit. Can you uncover its truth?", hint: "ETUTITSBUS", id: "c8" },
   { title: "Challenge 9", points: 100, description: "Numbers and Deception: Sometimes, the greatest value isn’t what it seems.", hint: "Read the code.", id: "c9" },
   { title: "Challenge 10", points: 75, description: "Rainb0lt who?", hint: "Try searching on planet Earth.", id: "c10" },
+  { title: "Challenge 11", points: 100, description: "Find the photographer's home location.", hint: "Sometimes, we share more online than we realize.", id:"c11"},
 ];
 
 export default function Challenges() {
