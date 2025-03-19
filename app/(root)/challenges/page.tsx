@@ -18,7 +18,7 @@ const quests = [
   { title: "Challenge 9", points: 100, description: "Numbers and Deception: Sometimes, the greatest value isn’t what it seems.", hint: "Read the code.", id: "c9" },
   { title: "Challenge 10", points: 75, description: "Rainb0lt who?", hint: "Try searching on planet Earth.", id: "c10" },
   { title: "Challenge 11", points: 100, description: "Find the photographer's home location.", hint: "Sometimes, we share more online than we realize.", id:"c11"},
-  { title: "Challenge 12", points: 75, description: "Just Copy n Paste", hint: "tired of using chatgpt", id: "c12" ,url:"https://c11.axiosiiitl.dev"} 
+  { title: "Challenge 12", points: 75, description: "Just Copy n Paste", hint: "tired of using chatgpt", id: "c12" ,url:"https://c11.axiosiiitl.dev"},
   { title: "Challenge 13", points: 75, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"} 
   
   
