@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
  import { useEffect, useState } from "react";
  import { useRouter } from "next/navigation";
+import { url } from "inspector";
 
 const quests = [
   { title: "Challenge 1", points: 50, description: "Pointy pointers.", hint: "Is the source code in C?", id: "c1" },
@@ -19,7 +20,8 @@ const quests = [
   { title: "Challenge 10", points: 75, description: "Rainb0lt who?", hint: "Try searching on planet Earth.", id: "c10" },
   { title: "Challenge 11", points: 100, description: "Find the photographer's home location.", hint: "Sometimes, we share more online than we realize.", id:"c11"},
   { title: "Challenge 12", points: 75, description: "Just Copy n Paste", hint: "tired of using chatgpt", id: "c12" ,url:"https://c11.axiosiiitl.dev"},
-  { title: "Challenge 13", points: 75, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"} 
+  { title: "Challenge 13", points: 75, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"},
+  { title: "Challenge 14", points: 75, description: "I love Marie", hint: "Is Marie really a person or a thing :> ?", id: "c14",url:"https://c14.axiosiiitl.dev" }
   
   
 ];
