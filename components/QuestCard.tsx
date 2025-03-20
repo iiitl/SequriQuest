@@ -109,7 +109,7 @@ export default function QuestCard({ title, points, description, hint, id, url, a
           type="text"
           value={flag}
           onChange={(e) => setFlag(e.target.value)}
-          placeholder={alreadySolved ? "Challenge already solved" : "Enter Flag (e.g., FLAG{...})"}
+          placeholder={alreadySolved ? "Challenge already solved" : "Enter Flag"}
           className="bg-black text-green-300 border border-green-500 px-4 py-2 w-full font-mono focus:outline-none focus:ring focus:ring-green-500"
           disabled={alreadySolved}
           required={!alreadySolved}

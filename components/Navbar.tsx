@@ -101,9 +101,9 @@ export default function Navbar() {
                   </>
                 ) : (
                   <>
-                    <Link href="/about" className="hover:text-green-300 transition duration-200">
+                    {/* <Link href="/about" className="hover:text-green-300 transition duration-200">
                       [ ABOUT ]
-                    </Link>
+                    </Link> */}
                     <Link href="/login" className="px-4 py-2 text-black bg-green-600 hover:bg-green-500 transition font-mono shadow-md">
                       LOGIN
                     </Link>
@@ -152,9 +152,9 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/about" className="hover:text-green-300 transition duration-200" onClick={() => setIsOpen(false)}>
+                {/* <Link href="/about" className="hover:text-green-300 transition duration-200" onClick={() => setIsOpen(false)}>
                   [ ABOUT ]
-                </Link>
+                </Link> */}
                 <Link href="/login" className="px-4 py-2 text-black bg-green-600 hover:bg-green-500 transition font-mono shadow-md" onClick={() => setIsOpen(false)}>
                   LOGIN
                 </Link>
