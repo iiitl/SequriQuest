@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const { db } = await connectToDatabase();
 
     const existingUser = await db.collection("users").findOne({
-      $or: [{ team_name }, { email }]
+      $or: [{ team_name }, { email }, { username: team_name }]
     });
 
     if (existingUser) {
@@ -27,6 +27,7 @@ export async function POST(request: Request) {
     await db.collection("users").insertOne({
       team_name,
       email,
+      username: team_name, // Add username field set to the same value as team_name
       password: hashedPassword,
       created_at: new Date()
     });
