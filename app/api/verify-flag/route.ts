@@ -14,7 +14,10 @@ const challengePoints: Record<string, number> = {
   "c8": 75,
   "c9": 100,
   "c10": 75,
-  "c11": 100
+  "c11": 100,
+  "c12": 75,
+  "c13": 75,
+  "c14": 75
 };
 
 async function verifyAuthentication() {
