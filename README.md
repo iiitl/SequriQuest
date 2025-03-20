@@ -40,4 +40,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 also add flags to it
 format
 c1=flag1
+scores are in route.ts
 
