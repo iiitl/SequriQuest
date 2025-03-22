@@ -9,19 +9,19 @@ import Navbar from "@/components/Navbar";
 
 const quests = [
   { title: "Challenge 1", points: 50, description: "Pointy pointers.", hint: "Is the source code in C?", id: "c1" },
-  { title: "Challenge 2", points: 75, description: "Disk Diving.", hint: "Dive deep to find the best gems.", id: "c2" },
-  { title: "Challenge 3", points: 100, description: "Easy search.", hint: "Its not that easy. LOL.", id: "c3" },
+  { title: "Challenge 2", points: 100, description: "Disk Diving.", hint: "Dive deep to find the best gems.", id: "c2" },
+  { title: "Challenge 3", points: 150, description: "Easy search.", hint: "Its not that easy. LOL.", id: "c3" },
   { title: "Challenge 4", points: 50, description: "Secret hunting.", hint: "The file is not as innocent as it looks.", id: "c4" },
-  { title: "Challenge 5", points: 75, description: "Reverse Engineering 101.", hint: "Don't overthink it.", id: "c5" },
+  { title: "Challenge 5", points: 100, description: "Reverse Engineering 101.", hint: "Don't overthink it.", id: "c5" },
   { title: "Challenge 6", points: 100, description: "Eye catcher.", hint: "Don't believe your eyes.", id: "c6" },
   { title: "Challenge 7", points: 50, description: "Julius encrypted his password using a simple encryption algorithm. Can you decode it?", hint: "USA!!USA!!USA!!", id: "c7" },
-  { title: "Challenge 8", points: 75, description: "A mysterious post was found on reddit. Can you uncover its truth?", hint: "ETUTITSBUS", id: "c8" },
+  { title: "Challenge 8", points: 50, description: "A mysterious post was found on reddit. Can you uncover its truth?", hint: "ETUTITSBUS", id: "c8" },
   { title: "Challenge 9", points: 100, description: "Numbers and Deception: Sometimes, the greatest value isn’t what it seems.", hint: "Read the code.", id: "c9" },
-  { title: "Challenge 10", points: 75, description: "Rainb0lt who?", hint: "Try searching on planet Earth.", id: "c10" },
+  { title: "Challenge 10", points: 100, description: "Rainb0lt who?", hint: "Try searching on planet Earth.", id: "c10" },
   { title: "Challenge 11", points: 100, description: "Find the photographer's home location.", hint: "Sometimes, we share more online than we realize.", id:"c11"},
-  { title: "Challenge 12", points: 75, description: "Just Copy n Paste", hint: "tired of using chatgpt", id: "c12" ,url:"https://c11.axiosiiitl.dev"},
-  { title: "Challenge 13", points: 75, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"},
-  { title: "Challenge 14", points: 75, description: "I love Marie", hint: "Is Marie really a person or a thing :> ?", id: "c14",url:"https://c14.axiosiiitl.dev" }
+  { title: "Challenge 12", points: 100, description: "Just Copy n Paste", hint: "tired of using chatgpt", id: "c12" ,url:"https://question.axiosiiitl.dev"},
+  { title: "Challenge 13", points: 50, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"},
+  { title: "Challenge 14", points: 100, description: "I love Marie", hint: "Is Marie really a person or a thing :> ?", id: "c14",url:"https://c14.axiosiiitl.dev" }
   
   
 ];

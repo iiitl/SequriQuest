@@ -5,19 +5,19 @@ import { connectToDatabase } from "@/lib/mongodb";
 
 const challengePoints: Record<string, number> = {
   "c1": 50,
-  "c2": 75,
-  "c3": 100,
+  "c2": 100,
+  "c3": 150,
   "c4": 50,
-  "c5": 75,
+  "c5": 100,
   "c6": 100,
   "c7": 50,
-  "c8": 75,
+  "c8": 50,
   "c9": 100,
-  "c10": 75,
+  "c10": 100,
   "c11": 100,
-  "c12": 75,
-  "c13": 75,
-  "c14": 75
+  "c12": 100,
+  "c13": 50,
+  "c14": 100
 };
 
 async function verifyAuthentication() {
