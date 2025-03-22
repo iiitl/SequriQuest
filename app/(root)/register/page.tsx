@@ -58,7 +58,12 @@ export default function Register() {
     setLoading(true);
     setError("");
 
-
+    // Check if email ends with @iiitl.ac.in
+    if (!email.endsWith('@iiitl.ac.in')) {
+      setError('Registration is only allowed with IIIT Lucknow email addresses (@iiitl.ac.in)');
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await fetch("/api/auth/register", {

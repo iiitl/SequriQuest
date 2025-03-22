@@ -4,8 +4,12 @@ import Footer from "@/components/Footer";
 import "../styles/blink.css";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useAuth } from "@/hooks/useAuth";
+
 
 export default function Home() {
+  const { isAuthenticated, isLoading, user } = useAuth();
+
   const [fakeLogs, setFakeLogs] = useState([
     "[SEQURIQUEST] Booting up...",
     "[AUTH] Establishing secure connection...",
@@ -40,18 +44,28 @@ export default function Home() {
                 Join our CTF and expand your knowledge in computer forensics.
               </p>
 
-              {/* Login & Register Buttons */}
+              {/* Conditional Login & Register Buttons */}
               <div className="mt-6 space-x-4">
-                <Link href="/login">
-                  <button className="bg-green-600 text-black px-6 py-2 font-mono text-lg shadow-md hover:bg-green-500 transition">
-                    Login
-                  </button>
-                </Link>
-                <Link href="/register">
-                  <button className="bg-red-600 text-black px-6 py-2 font-mono text-lg shadow-md hover:bg-red-500 transition">
-                    Register
-                  </button>
-                </Link>
+                {!isAuthenticated && !isLoading ? (
+                  <>
+                    <Link href="/login">
+                      <button className="bg-green-600 text-black px-6 py-2 font-mono text-lg shadow-md hover:bg-green-500 transition">
+                        Login
+                      </button>
+                    </Link>
+                    <Link href="/register">
+                      <button className="bg-red-600 text-black px-6 py-2 font-mono text-lg shadow-md hover:bg-red-500 transition">
+                        Register
+                      </button>
+                    </Link>
+                  </>
+                ) : isAuthenticated ? (
+                  <Link href="/challenges">
+                    <button className="bg-green-600 text-black px-6 py-2 font-mono text-lg shadow-md hover:bg-green-500 transition">
+                      Start Hacking
+                    </button>
+                  </Link>
+                ) : null}
               </div>
             </div>
 
@@ -63,6 +77,9 @@ export default function Home() {
                 {fakeLogs.map((log, index) => (
                   <p key={index} className="text-green-400">{log}</p>
                 ))}
+                {isAuthenticated && (
+                  <p className="text-green-400">[AUTH] Welcome back, {user?.teamName}!</p>
+                )}
                 <div className="blinking text-green-500">█</div>
               </div>
             </div>
