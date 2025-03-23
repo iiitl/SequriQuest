@@ -21,7 +21,8 @@ const quests = [
   { title: "Challenge 11", points: 100, description: "Find the photographer's home location.", hint: "Sometimes, we share more online than we realize.", id:"c11"},
   { title: "Challenge 12", points: 100, description: "Just Copy n Paste", hint: "tired of using chatgpt", id: "c12" ,url:"https://question.axiosiiitl.dev"},
   { title: "Challenge 13", points: 50, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"},
-  { title: "Challenge 14", points: 100, description: "I love Marie", hint: "Is Marie really a person or a thing :> ?", id: "c14",url:"https://c14.axiosiiitl.dev" }
+  { title: "Challenge 14", points: 100, description: "I love Marie", hint: "Is Marie really a person or a thing :> ?", id: "c14",url:"https://c14.axiosiiitl.dev" },
+  { title: "Challenge 15", points: 100, description: "Authentication Unlock", hint: "", id: "c15",url:"https://c15.axiosiiitl.dev" }
   
   
 ];
