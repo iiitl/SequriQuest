@@ -23,7 +23,7 @@ const quests = [
   { title: "Challenge 13", points: 50, description: "Just look inside", hint: "do you really need it?", id: "c13" ,url:"https://c13.axiosiiitl.dev"},
   { title: "Challenge 14", points: 100, description: "I love Marie", hint: "Is Marie really a person or a thing :> ?", id: "c14",url:"https://c14.axiosiiitl.dev" },
   { title: "Challenge 15", points: 100, description: "Authentication Unlock", hint: "", id: "c15",url:"https://c15.axiosiiitl.dev" },
-  { title: "Challenge 16", points: 50, description: "Terah", hint: "", id: "c16",url:"https://c16.axiosiiitl.dev" }
+  { title: "Challenge 16", points: 50, description: "Terah", hint: "flag format iiitl{flag}", id: "c16",url:"https://c16.axiosiiitl.dev" }
   
   
 ];
