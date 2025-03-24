@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
   try {
     const { challengeId, flag }: { challengeId: string, flag: string } = await req.json();
     const { isAuthenticated, username } = await verifyAuthentication();
-    
+    console.log(isAuthenticated, username);
     if (!isAuthenticated) {
       return NextResponse.json({ success: false, message: 'Not authenticated' }, { status: 401 });
     }
@@ -88,43 +88,43 @@ export async function POST(req: NextRequest) {
     
     if (flag === correctFlag) {
       const points = challengePoints[challengeId] || 0;
-      const timestamp = new Date().toISOString();
+      // const timestamp = new Date().toISOString();
       
-      try {
-        const { db } = await connectToDatabase();
-        const leaderboardCollection = db.collection('userProgress');
-        const user = await leaderboardCollection.findOne({ username });
-        // console.log(user)
-        if (!user) {
-          await leaderboardCollection.insertOne({
-            username,
-            solved: [challengeId],
-            totalPoints: points,
-            lastSolveTime: timestamp
-          });
-        } else {
-          if (!user.solved.includes(challengeId)) {
-            const updatedSolved = [...user.solved, challengeId];
-            const updatedPoints = user.totalPoints + points;
+      // try {
+      //   const { db } = await connectToDatabase();
+      //   const leaderboardCollection = db.collection('userProgress');
+      //   const user = await leaderboardCollection.findOne({ username });
+      //   // console.log(user)
+      //   if (!user) {
+      //     await leaderboardCollection.insertOne({
+      //       username,
+      //       solved: [challengeId],
+      //       totalPoints: points,
+      //       lastSolveTime: timestamp
+      //     });
+      //   } else {
+      //     if (!user.solved.includes(challengeId)) {
+      //       const updatedSolved = [...user.solved, challengeId];
+      //       const updatedPoints = user.totalPoints + points;
             
-            await leaderboardCollection.updateOne(
-              { username },
-              {
-                $set : {username,
-                solved: updatedSolved,
-                totalPoints: updatedPoints,
-                lastSolveTime: timestamp}
-              }
-            );
-          }
-        }
-      } catch (dbError) {
-        console.error('Error updating MongoDB:', dbError);
-      }
+      //       await leaderboardCollection.updateOne(
+      //         { username },
+      //         {
+      //           $set : {username,
+      //           solved: updatedSolved,
+      //           totalPoints: updatedPoints,
+      //           lastSolveTime: timestamp}
+      //         }
+      //       );
+      //     }
+      //   }
+      // } catch (dbError) {
+      //   console.error('Error updating MongoDB:', dbError);
+      // }
       
       return NextResponse.json({
         success: true,
-        message: 'Congratulations! Flag is correct',
+        message: 'Congratulations! Flag is correct But no points now :>',
         points: points
       });
     } else {
