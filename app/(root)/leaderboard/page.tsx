@@ -23,13 +23,6 @@ export default function Leaderboard() {
     const fetchLeaderboard = async () => {
       try {
         // First check if user is authenticated
-        const authResponse = await fetch('/api/auth/verify');
-        const authData = await authResponse.json();
-        
-        if (!authData.isAuthenticated) {
-          router.push('/login');
-          return;
-        }
         
         // Fetch leaderboard data
         const response = await fetch('/api/leaderboard');

@@ -15,52 +15,53 @@ interface QuestCardProps {
 export default function QuestCard({ title, points, description, hint, id, url, alreadySolved = false }: QuestCardProps) {
   const [flag, setFlag] = useState('');
   const [message, setMessage] = useState('');
-  const [status, setStatus] = useState(alreadySolved ? 'success' : ''); // 'success', 'error', or empty
+  // const [status, setStatus] = useState(alreadySolved ? 'success' : ''); // 'success', 'error', or empty
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isHintVisible, setIsHintVisible] = useState(false);
+  setIsSubmitting(false);
+  setMessage('not accepting flags');
+  // interface SubmitResponse {
+  //   success: boolean;
+  //   message: string;
+  //   points?: number;
+  // }
 
-  interface SubmitResponse {
-    success: boolean;
-    message: string;
-    points?: number;
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault();
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  //   e.preventDefault();
     
-    if (alreadySolved) return;
+  //   if (alreadySolved) return;
     
-    setIsSubmitting(true);
-    setMessage('');
-    setStatus('');
+  //   setIsSubmitting(true);
+  //   setMessage('');
+  //   setStatus('');
 
-    try {
-      const response = await fetch('/api/verify-flag', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ challengeId: id, flag }),
-      });
+  //   try {
+  //     const response = await fetch('/api/verify-flag', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ challengeId: id, flag }),
+  //     });
 
-      const data: SubmitResponse = await response.json();
+  //     const data: SubmitResponse = await response.json();
       
-      if (data.success) {
-        setStatus('success');
-        setMessage(`${data.message} (+${data.points} points)`);
-        setFlag('');
-      } else {
-        setStatus('error');
-        setMessage(data.message);
-      }
-    } catch (error) {
-      console.error('Error submitting flag:', error);
-      setStatus('error');
-      setMessage('An error occurred while submitting the flag. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //     if (data.success) {
+  //       setStatus('success');
+  //       setMessage(`${data.message} (+${data.points} points)`);
+  //       setFlag('');
+  //     } else {
+  //       setStatus('error');
+  //       setMessage(data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error submitting flag:', error);
+  //     setStatus('error');
+  //     setMessage('An error occurred while submitting the flag. Please try again.');
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <div className="bg-black text-green-400 border border-green-500 p-6 rounded-md shadow-md relative">
@@ -104,7 +105,8 @@ export default function QuestCard({ title, points, description, hint, id, url, a
       </details>
       
       {/* Flag Submission */}
-      <form onSubmit={handleSubmit} className="mt-4">
+      {/* <form onSubmit={handleSubmit} className="mt-4"> */}
+      <form className="mt-4">
         <input
           type="text"
           value={flag}
