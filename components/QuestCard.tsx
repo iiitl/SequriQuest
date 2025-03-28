@@ -98,10 +98,9 @@ export default function QuestCard({ title, points, description, hint, id, url, a
       </div>
       
       {/* Hint Section (Expandable) */}
-      <details className="mt-4" open={isHintVisible}>
-        <summary className="cursor-pointer text-green-500">View Hint</summary>
+      <div className={"mt-4 transition-all duration-300 max-h-fit"} style={{ maxHeight: isHintVisible ? '600px' : '0', overflow: 'hidden' }}>
         <p className="text-green-300 text-sm mt-2">{hint}</p>
-      </details>
+      </div>
       
       {/* Flag Submission */}
       <form onSubmit={handleSubmit} className="mt-4">
