@@ -1,10 +1,8 @@
 "use client";
 
-import QuestCard from "@/components/QuestCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
  import { useEffect, useState } from "react";
- import { useRouter } from "next/navigation";
 
 interface Challenge {
   id: number;
