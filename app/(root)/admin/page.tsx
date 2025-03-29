@@ -9,6 +9,7 @@ interface Challenge {
   title: string;
   description: string;
   points: number;
+   category: string;
   hint: string;
 }
 
